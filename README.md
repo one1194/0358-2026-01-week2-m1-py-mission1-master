@@ -1,24 +1,71 @@
-# 🐍 파이썬 [함께 미션1] 수행 안내 (General)
+manager_name = ""
+team_budget = 0.0
+scout_count = 0 
+player_name = ""
+over = 0.0
+player_stats = []
 
-이곳은 여러분이 **개인별로 배정받은 '과제 폴더'**입니다. <br>
-코드를 직접 타이핑하며 파이썬의 기초 문법을 익혀봅시다. 😊
+print("=" * 30)
+print("⚽ 방구석 명장 스카우트 시스템 ⚽")
+print("=" * 30)
 
----
+manager_name = input("감독님의 이름을 입력하세요 : ")
+team_budge = float(input("구단 초기 예산을 입력하세요(ex : 100.5억) : "))
+scout_count = int(input("평가할 능력치 개수를 입력하세요(최소 3이상) : "))
 
-### 🚀 1. 실습 시작하기 (에디터 열기)
-내 컴퓨터에 아무것도 설치할 필요 없습니다. 아래 버튼 하나면 충분합니다!
+print(f"\n환영합니다, {manager_name}감독님!")
+print(f"현재 구단 예산은 {team_budget}억 원이며, 선수당{scout_count}개의 스텟을 평가합니다.\n")
 
-* **방법 1:** 상단의 파란색 **[Open in Codespaces]** 버튼을 누릅니다. (추천!)
-* **방법 2:** 오른쪽 상단 초록색 **[ <> Code ]** 버튼 클릭 -> **[Codespaces]** 탭 -> **[Create codespace...]** 클릭
-* **결과:** 잠시 기다리면 브라우저 안에 나만의 **온라인 실습실**이 나타납니다.
+plyer_name = input("스카우트할 선수의 이름을 입력하세요 : ")
 
-### 💻 2. 코드 작성 및 실행
-* **파일 열기:** 왼쪽 목록에서 `main.py`를 클릭하세요.
-* **코드 작성:** 화면 중앙에 파이썬 코드를 작성하고, 반드시 **Ctrl + S**를 눌러 저장하세요.
-* **결과 확인:** 화면 아래 터미널 창에 `./run.sh`를 입력하고 엔터를 칩니다.
+start_names = ["슈팅","패스","스피드","피지컬","수비","민첩성"]
 
-### ✅ 3. 과제 제출하기
-실습이 끝나면 내 폴더의 내용을 교수님께 제출해야 합니다.
-1. 왼쪽 메뉴의 **가지 모양 아이콘**(Source Control)을 누릅니다.
-2. 메시지 칸에 "완료"라고 적고 **[Commit]** 버튼을 누릅니다.
-3. 파란색 **[Sync Changes]** 버튼을 누르면 최종 제출됩니다!
+print(f"--- {player_name}선수의 능력치 입력 ---")
+
+for i in range(scout_count) : 
+ start_val = int(input(f"{start_names[i % 6]} 능력치를 입력하세요 (1~100) : "))
+ player_stats.append(stat_val)
+
+stat_total = sum(player_stats)
+best_stat = max(splayer_stats)
+registered_count = lent(player_stats)
+
+over = stat_total / registered_count 
+
+scout_cost = 0.5
+team_budget -= scout_cost
+
+print("\n" + "=" * 30)
+print(f"📋 {player_name} 선수의 스카우트 리포트")
+print(f"- 입력된 스탯 수 : {registered_count}개")
+print(f"- 최고 능력치 : {best_stat}")
+print(f"- 종합 능력치(OVR): {over.1f}")
+print("=" * 30)
+
+print("▶ 등급 판정: ", end = "")
+if ovr >= 90 : 
+ print("S등급 (월드클래스)")
+elif ovr >= 80 : 
+ print("A등급 (즉시 전력감)")
+elif ovr >= 70 :
+ print("B등급 (유망주)")
+else :
+ pinrt("C등급 (영입 보류)")
+
+if best_stat >= 90 and ovr < 80 :
+ print("▶ 스카우터 코맨트 : 능력치 불균형이 심하지만 확실한 무기가 있습니다. ")
+
+transfer_fee = float(input(f"\n{player_name} 선수의 요구 이적료를 입력하세요 (실수형): "))
+
+print("\n--- 최종 영입 심사 ---")
+
+if transfer_fee <= team_budget : 
+ if ovr >= 75 :
+  print(f"✅ 영입 성공! {player_name} 선수가 팀에 합류합니다. ")
+  team_budget -= transfer_fee 
+ else : 
+   print("❌ 영입 실패 : 예산은 충분하지만 실력이 기준치에 미달합니다.")
+else : 
+ print("❌ 영입 실패 : 구단 예산이 부족합니다.")
+
+print(f"\n[잔여 예산] : {team_budget : .1f}억 원")
